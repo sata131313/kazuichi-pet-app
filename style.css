@@ -1,0 +1,31 @@
+
+body {
+    background-color: #fff0f5;
+    font-family: "Hiragino Maru Gothic Pro", sans-serif;
+    text-align: center;
+    padding: 30px;
+    color: #333;
+}
+h1 {
+    color: #d63384;
+}
+img {
+    width: 180px;
+    height: auto;
+}
+.buttons button, #snack-menu button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 8px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#kazuichi-line {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #d63384;
+    min-height: 2em;
+}

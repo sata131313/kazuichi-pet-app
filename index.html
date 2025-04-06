@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>和一育成部屋</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>和一育成部屋 💕</h1>
+    <img id="kazuichi-image" src="images/立ち絵.gif" alt="和一">
+    <div id="kazuichi-line">今日もよろしくな、沙汰。</div>
+    <div class="buttons">
+        <button onclick="talk()">話す</button>
+        <button onclick="snack()">おやつ</button>
+        <button onclick="kiss()">キス</button>
+    </div>
+    <div id="snack-menu" style="display:none;">
+        <p>どれをあげる？</p>
+        <button onclick="giveSnack('コーラ')">コーラ</button>
+        <button onclick="giveSnack('ビッグマック')">ビッグマック</button>
+        <button onclick="giveSnack('わさび団子')">わさび団子</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
