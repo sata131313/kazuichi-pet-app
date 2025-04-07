@@ -5,14 +5,27 @@
     <meta charset="UTF-8">
     <title>和一育成部屋</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
+
 </head>
 <body>
     <h1>和一育成部屋 💕</h1>
+    <div id="status">状態：起きてる</div>
+    <div id="affection-bar">好感度：<span id="affection">0</span></div>
+    <div id="energy-bar">体力：<span id="energy">100</span>/100</div>
+    <div id="energy-bar">童貞level：<span id="dtlevel">1</span></div>
     <img id="kazuichi-image" src="images/立ち絵.gif" alt="和一">
     <div id="kazuichi-line">今日もよろしくな、沙汰。</div>
     <div class="buttons">
         <button onclick="talk()">話す</button>
         <button onclick="snack()">おやつ</button>
+        <button onclick="pet()">なでなで</button>
+        <button onclick="sleepNow()">もう一緒に寝よう？</button>
         <button onclick="kiss()">キス</button>
     </div>
     <div id="snack-menu" style="display:none;">
