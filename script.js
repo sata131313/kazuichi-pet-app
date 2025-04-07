@@ -62,7 +62,9 @@ function talk() {
 }
 
 function snack() {
-    if (isSleeping) return;
+    if (isSleeping) 
+        document.getElementById("kazuichi-line").innerText = "まだ寝てるみたい。";
+    return;
     clearInterval(talkAnimation);
     document.getElementById("kazuichi-line").innerText = "どれ食べたいか、選んでくれよ〜！";
     document.getElementById("snack-menu").style.display = "block";
