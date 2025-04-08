@@ -65,7 +65,7 @@ function snack() {
     if (isSleeping) 
         document.getElementById("kazuichi-line").innerText = "まだ寝てるみたい。";
     return;
-    clearInterval(talkAnimation);
+    //clearInterval(talkAnimation);
     document.getElementById("kazuichi-line").innerText = "どれ食べたいか、選んでくれよ〜！";
     document.getElementById("snack-menu").style.display = "block";
 }
