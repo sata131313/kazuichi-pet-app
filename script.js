@@ -1,4 +1,3 @@
-
 let talkAnimation;
 let affection = parseInt(localStorage.getItem("affection") || "0");
 let energy = parseInt(localStorage.getItem("energy") || "100");
@@ -62,10 +61,11 @@ function talk() {
 }
 
 function snack() {
-    if (isSleeping) 
+    if (isSleeping) {
         document.getElementById("kazuichi-line").innerText = "まだ寝てるみたい。";
-    return;
-    //clearInterval(talkAnimation);
+        return;
+    }
+        clearInterval(talkAnimation);
     document.getElementById("kazuichi-line").innerText = "どれ食べたいか、選んでくれよ〜！";
     document.getElementById("snack-menu").style.display = "block";
 }
@@ -106,6 +106,10 @@ function giveSnack(item) {
 }
 
 function kiss() {
+    if (isSleeping) {
+        document.getElementById("kazuichi-line").innerText = "ん……？すぅ……すぅ……";
+        return;
+    }
     clearInterval(talkAnimation);
     document.getElementById("kazuichi-image").src = images.blush;
     document.getElementById("kazuichi-line").innerText = "っ、ちょ、お、お前今キスボタン押した！？ 童貞レベル振り切れたかも……！";
@@ -115,7 +119,10 @@ function kiss() {
 }
 
 function pet() {
-    if (isSleeping) return;
+    if (isSleeping) {
+        document.getElementById("kazuichi-line").innerText = "ん……なぁに……";
+        return;
+    }
     clearInterval(talkAnimation);
     let response = affection >= 50 ? "……もっと撫でてほしいかも。" : "な、なんだよ、急に……";
     document.getElementById("kazuichi-line").innerText = response;
@@ -127,12 +134,14 @@ function pet() {
 }
 
 function sleepNow() {
+    if(isSleeping) return;
     if (affection >= 50 || energy <= 0) {
         sleepMode();
     } else {
         document.getElementById("kazuichi-line").innerText = "……まだ眠くないかも。";
         document.getElementById("kazuichi-image").src = images.normal;
     }
+
 }
 
 function sleepMode() {
@@ -149,9 +158,9 @@ function wakeUpCheck() {
     const hour = new Date().getHours();
     const now = Date.now();
     const sleptFor = now - sleepStartTime;
-    const sleptLongEnough = sleptFor > 10000;  // 60秒以上寝たら起きてもいい
+    const sleptLongEnough = sleptFor > 20000;  // 60秒以上寝たら起きてもいい
 
-    if (isSleeping && sleptLongEnough && (hour >= 7 && hour < 22)) {
+    if (isSleeping && sleptLongEnough && (hour >= 7 && hour < 23)) {
         isSleeping = false;
         energy = 100;
         document.getElementById("kazuichi-image").src = "images/awake.gif";
@@ -190,7 +199,7 @@ setInterval(() => {
         }
     }
     wakeUpCheck();
-    //autoSleepCheck();
+    autoSleepCheck();
 }, 10000);
 
 updateUI();
