@@ -1,3 +1,4 @@
+
 let talkAnimation;
 let affection = parseInt(localStorage.getItem("affection") || "0");
 let energy = parseInt(localStorage.getItem("energy") || "100");
@@ -24,6 +25,39 @@ function saveState() {
     localStorage.setItem("energy", energy);
     localStorage.setItem("dtlevel", dtlevel);
     localStorage.setItem("sleepStartTime", sleepStartTime);
+}
+
+function generateCalendar(year, month) {
+  const calendar = document.getElementById("calendar");
+  calendar.innerHTML = "";
+
+  const date = new Date(year, month - 1, 1);
+  const firstDay = date.getDay();
+  const lastDate = new Date(year, month, 0).getDate();
+
+  let table = "<table><tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr><tr>";
+
+  for (let i = 0; i < firstDay; i++) {
+    table += "<td></td>";
+  }
+
+  for (let d = 1; d <= lastDate; d++) {
+    if ((firstDay + d - 1) % 7 === 0 && d !== 1) {
+      table += "</tr><tr>";
+    }
+    table += `<td class="calendar-day" onclick="selectDate(${year}, ${month}, ${d})">${d}</td>`;
+  }
+
+  table += "</tr></table>";
+  calendar.innerHTML = table;
+}
+
+// 今日の月で表示
+const today = new Date();
+generateCalendar(today.getFullYear(), today.getMonth() + 1);
+
+function selectDate(year, month, day) {
+  alert(`${year}/${month}/${day} を選んだよ！`);
 }
 
 

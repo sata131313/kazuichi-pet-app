@@ -15,6 +15,28 @@ h1 {
   margin-bottom: 20px;
 }
 
+#calendar table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+}
+
+#calendar th, #calendar td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+}
+
+.calendar-day {
+  cursor: pointer;
+  background-color: #fffafc;
+}
+
+.calendar-day:hover {
+  background-color: #ffe4f2;
+}
+
 #main-area {
     position: relative;
     margin: 0 auto 20px;
